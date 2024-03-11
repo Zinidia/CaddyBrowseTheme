@@ -1,0 +1,24 @@
+dl.cloudment.net {
+  tls /etc/caddy/certs/cert.pem /etc/caddy/certs/key.pem
+
+  root * /var/html/cdn
+  file_server {
+    browse /etc/caddy/browse.html
+  }
+
+  handle /robots.txt {
+    header  Content-type "text/plain"
+
+    respond 200 {
+      body "User-agent: *
+  Disallow: /"
+      close
+    }
+  }
+
+  handle /favicon.ico* {
+    root * /var/html/static
+    file_server
+  }
+
+}
