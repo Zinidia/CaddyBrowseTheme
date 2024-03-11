@@ -1,4 +1,4 @@
-dl.cloudment.net {
+example.com {
   tls /etc/caddy/certs/cert.pem /etc/caddy/certs/key.pem
 
   root * /var/html/cdn
